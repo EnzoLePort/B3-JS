@@ -1,0 +1,146 @@
+#html
+{
+	/*
+	background-color: black;
+	*/ 
+}
+
+.title
+{
+	text-align: center;
+	background-color: aquamarine;
+}
+
+#menuNav  
+{
+	display: none; 
+	/* block -> apparait && none -> disparait */
+
+	position: absolute;
+	left:8px;
+	top:80px;
+	width: 200px;
+	height: 780px;
+
+	padding: 10px;
+	background-color:red;	
+}
+
+#button-menuNav
+{
+	position: absolute;
+	padding: 5px;
+	left:8px;
+	top:80px;
+	width: 60px;
+	height: 60px;
+	background-color: red;
+}
+
+#button-newCard
+{
+	position: absolute;
+	
+	left:20%;
+	top:680px;
+	width: max-content;
+	height: max-content;
+
+	border-radius: 100px;
+	overflow: hidden;
+}
+
+#button-attaque
+{
+	position: absolute;
+	
+	left:45%;
+	top:680px;
+	width: max-content;
+	height: max-content;
+
+	border-radius: 100px;
+	overflow: hidden;
+}
+
+#button-campagne
+{
+	position: absolute;
+	
+	left:70%;
+	top:680px;
+	width: max-content;
+	height: max-content;
+
+	border-radius: 100px;
+	overflow: hidden;
+}
+
+#text
+{
+	background-color:yellow;
+}
+
+a { color:#000000;text-decoration: none;}
+
+/*----------------------CARDS------------------------------*/
+div[id*="card"]
+{
+	position: absolute;
+	width: 250px;
+	border-radius: 20px;
+	overflow: hidden;	
+}
+
+#img-imgCard  
+{
+max-width: 100%;
+height: auto;
+}
+
+#name
+{
+	text-align: center;
+	background-color: aqua;
+
+	border: 5px black solid;
+}
+
+#description
+{
+	background-color: rgb(200, 170, 120);
+	text-align: center;
+}
+
+/*--En JS on doit pouvoir ecrire ici et modif les valeurs--*/
+
+
+#card1  
+{
+top: 100px;
+left: 400px;
+}
+
+#card2  
+{
+top: 100px;
+left: 700px;
+}
+
+#card3  
+{
+top: 100px;
+left: 1000px;
+}
+
+#card4  
+{
+top: 100px;
+left: 1300px;
+}
+
+#card5  
+{
+top: 100px;
+left: 1600px;
+}

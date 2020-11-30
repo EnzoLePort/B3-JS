@@ -92,22 +92,6 @@ p8.presentation();
 
 //------------------------------------------------------
 
-function menuNav() {
-
-	if(document.getElementById("menuNav").style.display == "block")
-	{
-		document.getElementById("menuNav").style.display = "none";
-		document.getElementById("button-menuNav").style.left = "8px";
-	}
-	else
-	{
-		document.getElementById("menuNav").style.display = "block";
-		document.getElementById("button-menuNav").style.left = "230px";
-	}
-	
-}
-
-
 function newCard(){
 
 	console.log("appuie ok");
@@ -117,16 +101,6 @@ function newCard(){
 
 	const p6 = new Carte("newperso");
 	p6.presentation();
-}
-
-function attaque(){
-
-	console.log("appuie ok");
-}
-
-function campagne(){
-
-	console.log("appuie ok");
 }
 
 function flip(id){

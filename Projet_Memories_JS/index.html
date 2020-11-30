@@ -16,106 +16,44 @@
 
 </head>
 
-<!--
-	Script de redirection
-<?php
-  header('Location: http://www.votresite.com/pageprotegee.php');
-  exit();
-?>
--->
+<!----------------------------------------------------->
+<!-- La classe bodyGame permet d'avoir le background -->
+<!----------------------------------------------------->
+<body class="bodyGame">
 
-<body>
+	<!-------------------------->
+	<!-- 	Titre du jeu 	  -->
+	<!-------------------------->
+	<h1 class="title">Memorie Manga</h1>
 
-	<h1 class="title">Mon Jeu de carte</h1>
+	<div id="mainForCards"></div>
 
-	<main id="main">
-
-		<div id="menuNav">
-			<ul>
-				<br/><br/><br/><br/><br/>
-				<li><a href="">MENU</a></li>
-				<br/>
-				<li><a href="carte.html">MA COLLECTION</a></li>
-				<br/>
-				<li><a href="">AUTRES</a></li>
-				<br/>
-				<li><a href="">PARAMETRES</a></li>
-			</ul>
-
-		</div>
-
-		
-
-		<div id="pageDeGarde">
-				<img id="img_pageDeGarde" src="IMG/war2.jpg"/>
-		</div>
-
-		<div id="button-menuNav">
-			<img onclick=menuNav() src="IMG/tab.png"/>
-		</div>
-
-		<div id="button-newCard">
-			<img onclick=newCard() src="IMG/newCard.jpg"/>
-		</div>
-
-		<div id="button-attaque">
-			<img onclick=attaque() src="IMG/attaque.jpg"/>
-		</div>
-
-		<div id="button-campagne">
-			<img onclick=campagne() src="IMG/campagne.jpg"/>
-		</div>
-
-	</main>
-
-	<div id="mainForCards">
-
-		
-			<div id="card9" onclick="show()">
-
-				<div id="imgCard">
-					<img id="img" src="IMG/PERSO/zoro2.jpg" />
-				</div>
-
-				<div id="name">
-					ZOROOOOOOOO
-				</div>
-
-				<div id="description">
-					Bretteur invincible !<br/>
-					il nique tte les daronnes du monde!!!
-					<br/><br/>
-				</div>
-
-				<div id="HP">
-					HP = 100/100
-				</div>
-
-				<div id="ATT">
-					ATT = 90                            
-				</div>
-
-				<div id="DEF">
-						DEF = 60                            
-				</div>
-
-			</div>
-			
-
+	<!-------------------------->
+	<!-- Affichage des cartes -->
+	<!-------------------------->
+	<div class="display-cards">
+		<img style="height: 302px; width: 250px;" src="IMG/dos-carte.png">
+		<img style="height: 302px; width: 250px;" src="IMG/dos-carte.png">
+		<img style="height: 302px; width: 250px;" src="IMG/dos-carte.png">
+		<img style="height: 302px; width: 250px;" src="IMG/dos-carte.png">
+		<img style="height: 302px; width: 250px;" src="IMG/dos-carte.png">
+		<img style="height: 302px; width: 250px;" src="IMG/dos-carte.png">
+		<img style="height: 302px; width: 250px;" src="IMG/dos-carte.png">
+		<img style="height: 302px; width: 250px;" src="IMG/dos-carte.png">
+		<img style="height: 302px; width: 250px;" src="IMG/dos-carte.png">
+		<img style="height: 302px; width: 250px;" src="IMG/dos-carte.png">
 	</div>
-			
-
-			<div id="text">
-				La loi n° 2014-344 du 17 mars 2014 relative à la consommation contient 161 articles, concernant de nombreux domaines. Dans ses articles 1 et 2, elle introduit en droit français l'action de groupe. L'objectif : rééquilibrer le rapport de force entre consommateurs et professionnels.
-					Une nouvelle voie de droit au bénéfice des consommateurs
-					L'action de groupe est la possibilité pour une ou plusieurs personnes d'exercer une action en Justice afin d'obtenir réparation pour un groupe de personnes non identifiées, et cela sans avoir reçu de mandat de leur part. Cette action ne peut être déclenchée que lorsque le préjudice individuel subi par les consommateurs résulte d'un manquement d'un ou plusieurs professionnels à leurs obligations légales ou contractuelles en matière de droit de la consommation ou de droit de la concurrence. Cette action ne peut porter que sur la réparation des dommages matériels subis par les consommateurs.
-					
-					
-
-			</div>
 		
+	<!-------------------------->
+	<!-- Affichage des lvls	  -->
+	<!-------------------------->
+	<footer>
+		<img id="img-lvl1-footer" onclick="todo()" src="IMG/niveau-1.png">
+		<img id="img-lvl2-footer" onclick="todo()" src="IMG/niveau-2.png">
+		<img id="img-lvl3-footer" onclick="todo()" src="IMG/niveau-3.png">
+	</footer>
 
-		<script type="text/javascript" src="JS/script.js"></script>
+	<script type="text/javascript" src="JS/script.js"></script>
 </body>
 
 </html>
