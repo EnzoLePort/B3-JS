@@ -2,57 +2,81 @@ console.log('test_Creation_Cartes');
 
 class Carte{
 
-	constructor(NOM, HP, ATT, DEF){
+	static ID = 0;
 
-		this.NOM=NOM;
+	constructor(NAME, IMG, DESC){
 
-		if(HP == undefined)
+		this.id = ++Carte.ID;
+
+		this.NAME=NAME;
+
+		if(IMG == undefined)
 		{
-			this.HP=10;
+			this.IMG="NO IMG";
 		}
 		else
 		{
-			this.HP=HP;
+			this.IMG=IMG;
 		}
-		if(ATT == undefined)
+
+		if(DESC == undefined)
 		{
-			this.ATT="ATT = 0";
+			this.DESC="Aucune description";
 		}
 		else
 		{
-			this.ATT="ATT = "+ATT;
+			this.DESC=DESC;
 		}
-		if(DEF == undefined)
-		{
-			this.DEF="DEF = 0";
-		}
-		else
-		{
-			this.DEF="DEF = "+DEF;
-		}
-		//Other idea?
+
+		var node = document.createElement('div');
+		node.setAttribute("id","card"+this.id);
+
+		var child1 = document.createElement("div");
+		child1.setAttribute("id","imgCard");
+			var child11 = document.createElement("img");
+			child11.setAttribute("id","img-imgCard");
+			child11.setAttribute("src","IMG/PERSO/empty.jpg");
+			child1.appendChild(child11);
+
+		var child2 = document.createElement("div");
+		child2.setAttribute("id","name");
+			var child21 = document.createTextNode(this.NAME);
+			child2.appendChild(child21);
+
+		var child3 = document.createElement("div");
+		child3.setAttribute("id","description");
+			var child31 = document.createTextNode(this.DESC);
+			child3.appendChild(child31);
+
+			node.appendChild(child1);
+			node.appendChild(child2);
+			node.appendChild(child3);
+
+
+		document.getElementById("mainForCards").appendChild(node);
+
+		//this.carte = "<div>carte ici</div>"
+
 	}
 
 	// dans la class :
 	presentation(){
-		console.log('Le personnage s\'appelle : '+this.NOM);
-		console.log('Il a : '+this.HP+' points de vie');
-		console.log('Et son attaque est la suivante : '+this.ATT+' points de degats!');
-		console.log('Mais attention ! Il s une defense qui est de : '+this.DEF+' points !');
+		console.log('Le personnage s\'appelle : '+this.NAME);
+		console.log('ID : '+this.id);
+		console.log('IMG : '+this.IMG);
+		console.log('DESC : '+this.DESC);
 		console.log("-----------");
 	}
 
 }
 
-const p1 = new Carte("enzo",200,300,400);
-const p2 = new Carte("noob1",100,30);
-const p3 = new Carte("noob2",50);
-const p4 = new Carte("nooob");
+const p1 = new Carte("enzo","liens image","mate 1");
+const p2 = new Carte("Alexis");
+const p3 = new Carte("Olivier","autre liens");
 
 p1.presentation();
 p2.presentation();
 p3.presentation();
-p4.presentation();
 
 //------------------------------------------------------
 
