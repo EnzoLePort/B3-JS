@@ -96,7 +96,7 @@ class Carte {
 	//=======================================================================================
 	presentationCard(){
 		var divCard = document.getElementById("card"+this.ID);
-		var paddingLeft = 	[100, 450, 750, 1050, 1350];
+		var paddingLeft = 	[100, 400, 700, 1000, 1300];
 		var paddingTop 	= 	[100, 450];
 		if(this.ID < 6) {
 			divCard.style.top = paddingTop[0]+"px";
