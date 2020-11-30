@@ -1,0 +1,159 @@
+https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input/file
+
+<label for="avatar">Choose a profile picture:</label>
+
+<input type="file"
+       id="avatar" name="avatar"
+       accept="image/png, image/jpeg">
+
+       Les éléments <input> dont l'attribut type vaut "file" permettent à un utilisateur de sélectionner un ou plusieurs fichiers depuis leur appareil et de les uploader vers un serveur via un formulaire ou grâce à du code JavaScript
+
+       //-----------------------------------------------------------------
+
+
+https://www.tutorielsenfolie.com/tutoriels-92-Lire-et-ecrire-dans-un-fichier-en-JavaScript.html
+
+
+       Lire et écrire dans un fichier en JavaScript
+Catégorie: Javascript.
+Posté par Koener Hervé le 16/08/2013.
+Dernière mise à jour le 16/08/2013.
+
+Description
+Dans ce tutoriel, vous apprendrez comment lire, écrire et supprimer des fichiers en JavaScript.
+
+Introduction
+Ce tutoriel peut être réalisé à l'aide d'un simple éditeur de texte. Il nécessite des connaissances de base en en JavaScript.
+
+Créer le fichier
+Afin de créer un fichier en JavaScript nous devons utiliser l'objet ActiveX « Scripting.FileSystemObject ». Lorsque l'objet ActiveX est instancié, nous pouvons utiliser sa méthode « CreateTextFile » afin de créer le fichier de test.
+
+Voici un exemple:
+
+var fileSystem=new ActiveXObject("Scripting.FileSystemObject");
+fileSystem.CreateTextFile("tutorielsenfolie.txt",false);
+
+NB: Pour écraser le fichier s'il existe, il faut mettre le deuxième argument à « true ».
+
+Ouvrir le fichier
+Comme pour la création de fichier, l'objet ActiveX « Scripting.FileSystemObject » doit être instancié.
+
+Celui-ci possède également une méthode qui permet d'ouvrir un fichier. La méthode en question se nomme « OpenTextFile ».
+
+Voici un exemple d'utilisation de la méthode « OpenTextFile »:
+
+var fileSystem=new ActiveXObject("Scripting.FileSystemObject");
+var monfichier=fileSystem.OpenTextFile("tutorielsenfolie.txt", 2 ,true); //Ouverture du fichier "tutorielsenfolie.txt" en mode écriture
+
+Les arguments de la méthode OpenTextFile sont:
+
+le nom du fichier;
+le type d'ouverture:
+1:lecture ;
+2:écriture ;
+8:écriture à la fin du fichier;
+un booléen qui précise si l'on doit créer le fichier, si celui-ci n'existe pas: true = créer le fichier;
+Pour clore le fichier il suffit d'exécuter la méthode « close »:
+
+monFichier.Close();
+
+Lire le fichier
+Je vais maintenant vous expliquer comment lire un fichier en JavaScript. Pour ce faire nous pouvons utiliser deux méthodes:
+
+Read: permet de lire un certain nombre de caractère;
+ReadAll: permet de lire l'entièreté du fichier;
+Voici deux exemples qui montrent comment lire un fichier en JavaScript.
+Dans ces exemples, nous ne considérons que le texte contenu dans « tutorielsenfolie.txt » est « tutoriels en folie ».
+
+Permier exemple:
+
+var fileSystem=new ActiveXObject("Scripting.FileSystemObject");
+var monfichier=fileSystem.OpenTextFile("tutorielsenfolie.txt", 1 ,true);
+alert(monfichier.Read(7)); // imprime: "tutorie"
+monFichier.Close();
+
+Deuxième exemple:
+
+var fileSystem=new ActiveXObject("Scripting.FileSystemObject");
+var monfichier=fileSystem.OpenTextFile("tutorielsenfolie.txt", 1 ,true);
+alert(monfichier.ReadAll()); // imprime: "tutoriels en folie"
+monFichier.Close();
+
+NB: pour lire un fichier il faut que celui-ci soit ouvert en mode lecture (1).
+
+Ecrire dans le fichier
+Je vais maintenant vous expliquer comment écrire dans un fichier en JavaScript. Pour ce faire nous pouvons utiliser deux méthodes:
+
+Write: permet d'écrire du texte dans le fichier;
+WriteLine: permet d'écrire du texte dans le fichier et rajoute un retour à la ligne;
+Voici deux exemples qui montrent comment écrire dans un fichier en JavaScript.
+
+Premier exemple:
+
+var fileSystem=new ActiveXObject("Scripting.FileSystemObject");
+var monfichier=fileSystem.OpenTextFile("tutorielsenfolie.txt", 2 ,true);
+monfichier.WriteLine("tutoriels en folie");
+monfichier=fileSystem.OpenTextFile("tutorielsenfolie.txt", 1 ,true);
+alert(monfichier.ReadAll()); // imprime: "tutoriels en folie"
+monFichier.Close();
+
+Deuxième exemple:
+
+
+var fileSystem=new ActiveXObject("Scripting.FileSystemObject");
+var monfichier=fileSystem.OpenTextFile("tutorielsenfolie.txt", 2 ,true);
+monfichier.WriteLine("tutoriels en folie");
+monfichier=fileSystem.OpenTextFile("tutorielsenfolie.txt", 1 ,true);
+alert(monfichier.ReadAll()); // imprime: "tutoriels en folie\n"
+monFichier.Close();
+
+NB: pour écrire dans un fichier il faut que celui-ci soit ouvert en mode écriture (2 ou 8).
+
+Supprimer le fichier
+Pour supprimer le fichier, il suffit d'exécuter la méthode JavaScript « DeleteFile »:
+
+var fileSystem=new ActiveXObject("Scripting.FileSystemObject");
+fileSystem.DeleteFile("tutorielsenfolie.txt");
+
+Tu as aimé ce tutoriel ?
+Aide nous à améliorer le site ! Deviens partenaire officiel ou suis nous sur facebook !
+
+//--------------------------------------------------
+
+http://xymaths.free.fr/Informatique-Programmation/javascript/lire-inclure-fichier-javascript.php
+
+<object type="text/html" data="Hello.html"><object>
+<button id="btn1" onclick="chghtml()">Changer le texte</button>
+<script>
+var i=0
+function chghtml() {
+ if (i==0) {
+  document.getElementById("obj1").data="fichier1.html";i=1;}
+ else {
+  document.getElementById("obj1").data="fichier2.html";i=0}
+}
+</script>
+dt=document.getElementById("obj1").data alert("Fichier inséré:\n"+dt
+
+//------------------------------------------------------
+
+https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Instructions/import
+
+Le module : fichier.js
+function getJSON(url, rappel) {
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function () { 
+    rappel(this.responseText) 
+  };
+  xhr.open('GET', url, true);
+  xhr.send();
+}
+
+export function recupererContenuUtile(url, rappel) {
+  getJSON(url, donnees => rappel(JSON.parse(donnees)));
+}
+Le programme principal : principal.js
+import { recupererContenuUtile } from '/modules/fichier.js';
+
+recupererContenuUtile('http://www.example.com',
+    donnees => { faireQuelqueChoseDUtile(donnees); });

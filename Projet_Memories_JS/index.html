@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html id="html" lang="fr-FR">
+<head>
+
+	<!-- Obligatoire -->
+	<meta charset="utf-8">
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta name='referrer' content='origin'>
+	<meta name='apple-mobile-web-app-capable' content='yes'>
+	<meta name='robots' content='index,follow'>
+	<link rel='icon' type="image/png" href="IMG/icon.png">
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	<title>-Mon Jeu 2 Cartes-</title>
+
+</head>
+
+<!--
+	Script de redirection
+<?php
+  header('Location: http://www.votresite.com/pageprotegee.php');
+  exit();
+?>
+-->
+
+<body>
+
+	<h1 class="title">Mon Jeu de carte</h1>
+
+	<main id="main">
+
+		<div id="menuNav">
+			<ul>
+				<br/><br/><br/><br/><br/>
+				<li><a href="">MENU</a></li>
+				<br/>
+				<li><a href="carte.html">MA COLLECTION</a></li>
+				<br/>
+				<li><a href="">AUTRES</a></li>
+				<br/>
+				<li><a href="">PARAMETRES</a></li>
+			</ul>
+
+		</div>
+
+		
+
+		<div id="pageDeGarde">
+				<img id="img_pageDeGarde" src="IMG/war2.jpg"/>
+		</div>
+
+		<div id="button-menuNav">
+			<img onclick=menuNav() src="IMG/tab.png"/>
+		</div>
+
+		<div id="button-newCard">
+			<img onclick=newCard() src="IMG/newCard.jpg"/>
+		</div>
+
+		<div id="button-attaque">
+			<img onclick=attaque() src="IMG/attaque.jpg"/>
+		</div>
+
+		<div id="button-campagne">
+			<img onclick=campagne() src="IMG/campagne.jpg"/>
+		</div>
+
+	</main>
+
+	<div id="mainForCards">
+
+		
+			<div id="card1">
+
+				<div id="imgCard">
+					<img id="img" src="IMG/PERSO/zoro2.jpg" />
+				</div>
+
+				<div id="name">
+					ZOROOOOOOOO
+				</div>
+
+				<div id="description">
+					Bretteur invincible !<br/>
+					il nique tte les daronnes du monde!!!
+					<br/><br/>
+				</div>
+
+				<div id="HP">
+					HP = 100/100
+				</div>
+
+				<div id="ATT">
+					ATT = 90                            
+				</div>
+
+				<div id="DEF">
+						DEF = 60                            
+				</div>
+
+			</div>
+			
+
+			<div id="card2">
+
+					<div id="imgCard">
+						<img id="img-imgCard" src="IMG/PERSO/luffy.jpg" />
+					</div>
+
+					<div id="name">
+						LUFFY
+					</div>
+
+					<div id="description">
+						Homme élastique !<br/>
+						il nique tte les daronnes du monde!!!
+						<br/><br/>
+					</div>
+
+					<div id="HP">
+						HP = 110/100
+					</div>
+
+					<div id="ATT">
+						ATT = 55                            
+					</div>
+
+					<div id="DEF">
+							DEF = 35                            
+					</div>
+
+			</div>
+
+
+			<div id="card3">
+
+					<div id="imgCard">
+						<img id="img-imgCard" src="IMG/PERSO/shanks.jpg" />
+					</div>
+	
+					<div id="name">
+						SHANKS
+					</div>
+	
+					<div id="description">
+						DIEU VIVANT !<br/>
+						il nique tte les daronnes du monde!!!
+						<br/><br/>
+					</div>
+	
+					<div id="HP">
+						HP = 150/100
+					</div>
+	
+					<div id="ATT">
+						ATT = 150                            
+					</div>
+	
+					<div id="DEF">
+							DEF = 110                            
+					</div>
+	
+			</div>
+
+			<div id="card4">
+
+					<div id="imgCard">
+						<img id="img-imgCard" src="IMG/PERSO/byakuya.jpg" />
+					</div>
+	
+					<div id="name">
+						BYAKUYA
+					</div>
+	
+					<div id="description">
+						SHINIGAMI !<br/>
+						il nique tte les daronnes du monde!!!
+						<br/><br/>
+					</div>
+	
+					<div id="HP">
+						HP = 100/100
+					</div>
+	
+					<div id="ATT">
+						ATT = 80                            
+					</div>
+	
+					<div id="DEF">
+							DEF = 100                            
+					</div>
+	
+			</div>
+
+
+			<div id="card5">
+
+					<div id="imgCard">
+						<img id="img-imgCard" src="IMG/PERSO/ulquiora.png" />
+					</div>
+	
+					<div id="name">
+						ULQUIORA
+					</div>
+	
+					<div id="description">
+						HOLLOW !<br/>
+						il nique tte les daronnes du monde!!!
+						<br/><br/>
+					</div>
+	
+					<div id="HP">
+						HP = 200/100
+					</div>
+	
+					<div id="ATT">
+						ATT = 50                            
+					</div>
+	
+					<div id="DEF">
+							DEF = 50                            
+					</div>
+	
+			</div>
+
+	</div>
+			
+
+			<div id="text">
+				La loi n° 2014-344 du 17 mars 2014 relative à la consommation contient 161 articles, concernant de nombreux domaines. Dans ses articles 1 et 2, elle introduit en droit français l'action de groupe. L'objectif : rééquilibrer le rapport de force entre consommateurs et professionnels.
+					Une nouvelle voie de droit au bénéfice des consommateurs
+					L'action de groupe est la possibilité pour une ou plusieurs personnes d'exercer une action en Justice afin d'obtenir réparation pour un groupe de personnes non identifiées, et cela sans avoir reçu de mandat de leur part. Cette action ne peut être déclenchée que lorsque le préjudice individuel subi par les consommateurs résulte d'un manquement d'un ou plusieurs professionnels à leurs obligations légales ou contractuelles en matière de droit de la consommation ou de droit de la concurrence. Cette action ne peut porter que sur la réparation des dommages matériels subis par les consommateurs.
+					
+					
+
+			</div>
+		
+
+		<script type="text/javascript" src="JS/script.js"></script>
+</body>
+
+</html>

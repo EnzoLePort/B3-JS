@@ -1,0 +1,78 @@
+.title
+{
+	display: flex;
+	justify-content: center;
+	
+}
+
+.form
+{
+	display: flex;
+	flex-direction: column; 
+	justify-content: center;
+	align-items: center;
+	border: solid;
+	border-width: 20px;
+	border-color: cadetblue;
+	background-color: coral;
+}
+
+#validation
+{
+	position: absolute;
+	bottom: 0;
+	/*
+	left: 0;
+	right: 0;
+	*/
+}
+
+#reset
+{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+
+#validation
+{
+	visibility: visible;
+}
+
+#modal
+{
+	display: flex;
+	flex-direction: column; 
+	justify-content: center;
+	align-items: center;
+	/* aligne les colonnes au centres (les filles sont mises en colonnes */
+
+	position: absolute;
+	
+		top: 50%;
+	  	left: 50%;
+	  	transform: translate(-50%, -50%);
+	
+}
+
+#textModal
+{
+	border: ridge;
+	border-width: 5px;
+	border-color: rgb(51, 133, 48);
+	background-color: rgb(104, 161, 214);
+}
+
+#background
+{
+	background-color: rgb(0, 255, 255, 0.4);/* le 3em parametre sert pour l'opacité du background */
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	/* z-index est pour les couches */
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+}
