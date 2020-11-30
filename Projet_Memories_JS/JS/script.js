@@ -120,4 +120,12 @@ function newCard(){
 
 function flip(id){
 	console.log("flip id "+id);
+
+	var d = document.getElementById("card"+id);
+	var dd = d.firstChild.firstChild;//.getAttribute("src");
+	//var dd = d.firstChild.firstChild.getAttribute("src");
+	console.log(dd.getAttribute("src"))
+	dd.setAttribute('src', "IMG/dos-carte.png");
+
+	//p1.reverseCard();
 }
