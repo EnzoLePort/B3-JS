@@ -69,6 +69,21 @@ class Carte{
 		console.log("-----------");
 	}
 
+	reverseCard(){
+
+        let src = this.IMG;
+        let mySrc = myImage.getAttribute('src');
+
+        if(mySrc === src)
+        {
+            myImage.setAttribute('src', "dos-carte.png")
+        }
+        else
+        {
+            myImage.setAttribute('src', src)
+        }
+    }
+
 }
 
 const p1 = new Carte("ZOROOOOOOOO","IMG/PERSO/zoro2.jpg","Bretteur invincible !");
