@@ -64,6 +64,7 @@ class Carte {
 
 		document.getElementById("mainForCards").appendChild(node);
 
+		this.presentationCard();
 		//this.carte = "<div>carte ici</div>"
 
 	}
@@ -87,6 +88,22 @@ class Carte {
 		}
 		else {
 			myImage.setAttribute('src', src)
+		}
+	}
+
+	//=======================================================================================
+	// Mise en place d'un style CSS pour faire un padding à chaque affichage d'une carte	/
+	//=======================================================================================
+	presentationCard(){
+		var divCard = document.getElementById("card"+this.ID);
+		var paddingLeft = 	[100, 450, 750, 1050, 1350];
+		var paddingTop 	= 	[100, 450];
+		if(this.ID < 6) {
+			divCard.style.top = paddingTop[0]+"px";
+			divCard.style.left = paddingLeft[this.ID-1]+"px";
+		} else {
+			divCard.style.top = paddingTop[1]+"px";
+			divCard.style.left = paddingLeft[this.ID-6]+"px";
 		}
 	}
 

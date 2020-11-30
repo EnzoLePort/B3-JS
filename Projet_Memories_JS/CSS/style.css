@@ -79,36 +79,3 @@ height: auto;
 	text-align: center;
 }
 
-/*--En JS on doit pouvoir ecrire ici et modif les valeurs--*/
-
-
-#card1  
-{
-top: 100px;
-left: 400px;
-}
-
-#card2  
-{
-top: 100px;
-left: 700px;
-}
-
-#card3  
-{
-top: 100px;
-left: 1000px;
-}
-
-#card4  
-{
-top: 100px;
-left: 1300px;
-}
-
-#card5  
-{
-top: 100px;
-left: 1600px;
-}
-
