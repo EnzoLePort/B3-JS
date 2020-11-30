@@ -2,17 +2,17 @@ console.log('test_Creation_Cartes');
 
 class Carte{
 
-	static ID = 0;
+	static classID = 0;
 
 	constructor(NAME, IMG, DESC){
 
-		this.id = ++Carte.ID;
+		this.ID = ++Carte.classID;
 
 		this.NAME=NAME;
 
 		if(IMG == undefined)
 		{
-			this.IMG="NO IMG";
+			this.IMG="IMG/PERSO/empty.jpg";
 		}
 		else
 		{
@@ -29,13 +29,14 @@ class Carte{
 		}
 
 		var node = document.createElement('div');
-		node.setAttribute("id","card"+this.id);
+		node.setAttribute("id","card"+this.ID);
+		node.setAttribute("onclick","flip("+this.ID+")");
 
 		var child1 = document.createElement("div");
 		child1.setAttribute("id","imgCard");
 			var child11 = document.createElement("img");
 			child11.setAttribute("id","img-imgCard");
-			child11.setAttribute("src","IMG/PERSO/empty.jpg");
+			child11.setAttribute("src",this.IMG);
 			child1.appendChild(child11);
 
 		var child2 = document.createElement("div");
@@ -62,7 +63,7 @@ class Carte{
 	// dans la class :
 	presentation(){
 		console.log('Le personnage s\'appelle : '+this.NAME);
-		console.log('ID : '+this.id);
+		console.log('current ID : '+this.ID);
 		console.log('IMG : '+this.IMG);
 		console.log('DESC : '+this.DESC);
 		console.log("-----------");
@@ -70,13 +71,24 @@ class Carte{
 
 }
 
-const p1 = new Carte("enzo","liens image","mate 1");
-const p2 = new Carte("Alexis");
-const p3 = new Carte("Olivier","autre liens");
+const p1 = new Carte("ZOROOOOOOOO","IMG/PERSO/zoro2.jpg","Bretteur invincible !");
+const p2 = new Carte("LUFFY","IMG/PERSO/luffy.jpg", "Homme élastique !");
+const p3 = new Carte("SHANKS","IMG/PERSO/shanks.jpg", "DIEU VIVANT !");
+const p4 = new Carte("BYAKUYA","IMG/PERSO/byakuya.jpg", "SHINIGAMI !");
+const p5 = new Carte("ULQUIORA","IMG/PERSO/ulquiora.jpg", "HOLLOW !");
+const p6 = new Carte("YAMAMOTO","IMG/PERSO/commandant.jpg", "commandant SHINIGAMI !");
+const p7 = new Carte("test7");
+const p8 = new Carte("test8");
 
 p1.presentation();
 p2.presentation();
 p3.presentation();
+p4.presentation();
+p5.presentation();
+p6.presentation();
+p7.presentation();
+p8.presentation();
+
 
 //------------------------------------------------------
 
@@ -115,4 +127,8 @@ function attaque(){
 function campagne(){
 
 	console.log("appuie ok");
+}
+
+function flip(id){
+	console.log("flip id "+id);
 }

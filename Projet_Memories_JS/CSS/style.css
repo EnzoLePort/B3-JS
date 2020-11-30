@@ -92,12 +92,6 @@ div[id*="card"]
 	overflow: hidden;	
 }
 
-#card1  
-{
-top: 100px;
-left: 400px;
-}
-
 #img-imgCard  
 {
 max-width: 100%;
@@ -112,39 +106,21 @@ height: auto;
 	border: 5px black solid;
 }
 
-#HP
-{
-	position: absolute;
-	left: 0px;
-	top : 20px;
-	display: inline-block;
-	background-color: green;
-}
-
-#ATT
-{
-	position: absolute;
-	right: 0px;
-	top : 20px;
-	display: inline-block;
-	background-color: red;
-}
-
-#DEF
-{
-	position: absolute;
-	left: 0px;
-	top : 40px;
-	width: 100%;
-	text-align: center;
-	background-color: rgb(26, 103, 167);
-}
-
 #description
 {
-	background-color: rgb(200, 170, 120)
+	background-color: rgb(200, 170, 120);
+	text-align: center;
 }
+
 /*--En JS on doit pouvoir ecrire ici et modif les valeurs--*/
+
+
+#card1  
+{
+top: 100px;
+left: 400px;
+}
+
 #card2  
 {
 top: 100px;
