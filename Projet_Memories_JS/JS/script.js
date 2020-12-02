@@ -162,7 +162,7 @@ function flip(id, classId) {
 
 function checkIfTheSameCards() {
 	if (choiceTwoCards.length == 2) {
-		if (miseEnCommun[0] == miseEnCommun[1]) {
+		if (miseEnCommun[0] == miseEnCommun[1] && choiceTwoCards[0] != choiceTwoCards[1]) {
 			choiceTwoCards = [];
 			miseEnCommun = [];
 			points++;
