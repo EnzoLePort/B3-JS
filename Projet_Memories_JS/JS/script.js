@@ -28,7 +28,7 @@ class Carte {
 	constructor(ID, NAME, IMG, DESC) {
 
 		Carte.classID++;
-		//this.ID = ++Carte.classID;
+		this.POSITION_ID = Carte.classID;
 
 		this.ID = ID;
 		this.NAME = NAME;
@@ -49,6 +49,7 @@ class Carte {
 
 		var node = document.createElement('div');
 		node.setAttribute("id", "card" + this.ID);
+		node.setAttribute("class", "pos" + this.POSITION_ID);
 		node.setAttribute("onclick", "flip(" + this.ID + ")");
 
 		var child1 = document.createElement("div");
@@ -72,12 +73,10 @@ class Carte {
 		node.appendChild(child2);
 		node.appendChild(child3);
 
-
 		document.getElementById("mainForCards").appendChild(node);
 
 		this.presentationCard();
 		//this.carte = "<div>carte ici</div>"
-
 	}
 
 	// dans la class :
@@ -105,37 +104,54 @@ class Carte {
 	//=======================================================================================
 	// Mise en place d'un style CSS pour faire un padding à chaque affichage d'une carte	/
 	//=======================================================================================
-	presentationCard(){
-		var divCard = document.getElementById("card"+this.ID);
-		var paddingLeft = 	[100, 400, 700, 1000, 1300];
-		var paddingTop 	= 	[100, 450, 800, 1150, 1500, 1850];
-		if(this.ID <= 5) {
-			divCard.style.top = paddingTop[0]+"px";
-			divCard.style.left = paddingLeft[this.ID-1]+"px";
-		} else if(this.ID >= 6 && this.ID <= 10){
-			divCard.style.top = paddingTop[1]+"px";
-			divCard.style.left = paddingLeft[this.ID-6]+"px";
-		} else if(this.ID >= 11 && this.ID <= 15) {
-			divCard.style.top = paddingTop[2]+"px";
-			divCard.style.left = paddingLeft[this.ID-11]+"px";
-		} else if(this.ID >= 16 && this.ID <= 20) {
-			divCard.style.top = paddingTop[3]+"px";
-			divCard.style.left = paddingLeft[this.ID-16]+"px";
-		} else if(this.ID >= 21 && this.ID <= 25) {
-			divCard.style.top = paddingTop[4]+"px";
-			divCard.style.left = paddingLeft[this.ID-21]+"px";
-		} else if(this.ID >= 26 && this.ID <= 30) {
-			divCard.style.top = paddingTop[5]+"px";
-			divCard.style.left = paddingLeft[this.ID-26]+"px";
+	presentationCard() {
+		var divCard = document.getElementById("card" + this.ID);
+		//var divCard = document.getElementsByClassName("pos" + this.POSITION_ID);
+		console.log("divCard")
+		console.log(divCard)
+		var paddingLeft = [100, 400, 700, 1000, 1300];
+		var paddingTop = [100, 450, 800, 1150, 1500, 1850];
+		if (this.ID <= 5) {
+			divCard.style.top = paddingTop[0] + "px";
+			divCard.style.left = paddingLeft[this.ID - 1] + "px";
+		} else if (this.ID >= 6 && this.ID <= 10) {
+			divCard.style.top = paddingTop[1] + "px";
+			divCard.style.left = paddingLeft[this.ID - 6] + "px";
+		} else if (this.ID >= 11 && this.ID <= 15) {
+			divCard.style.top = paddingTop[2] + "px";
+			divCard.style.left = paddingLeft[this.ID - 11] + "px";
+		} else if (this.ID >= 16 && this.ID <= 20) {
+			divCard.style.top = paddingTop[3] + "px";
+			divCard.style.left = paddingLeft[this.ID - 16] + "px";
+		} else if (this.ID >= 21 && this.ID <= 25) {
+			divCard.style.top = paddingTop[4] + "px";
+			divCard.style.left = paddingLeft[this.ID - 21] + "px";
+		} else if (this.ID >= 26 && this.ID <= 30) {
+			divCard.style.top = paddingTop[5] + "px";
+			divCard.style.left = paddingLeft[this.ID - 26] + "px";
 		}
 	}
 
 }
 
-for (var i = 0; i < allcartes.length; i++) {
-	newCartes[i] = new Carte(allcartes[i][0],allcartes[i][1]);//,allcartes[i][2],allcartes[i][3]
+//------------------------------------------------------
+/* INIT */
+
+/* for (var i = 3; i < allcartes.length; i++) {
+	newCartes[i] = new Carte(allcartes[i][0], allcartes[i][1]);//,allcartes[i][2],allcartes[i][3]
 	newCartes[i].presentation();
-}
+} */
+
+var init = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
+
+var melange = shuffle(init)
+
+console.log(melange)
+
+melange.forEach(m => {
+	newCartes[m] = new Carte(allcartes[m][0], allcartes[m][1]);//,allcartes[i][2],allcartes[i][3]
+	newCartes[m].presentation();
+});
 
 //------------------------------------------------------
 
@@ -145,9 +161,9 @@ function flip(id) {
 	var cardId = document.getElementById("card" + id);
 	var child2 = cardId.firstChild.firstChild;
 	var src = child2.getAttribute("src");
-	if(src == "IMG/dos-carte.png"){
+	if (src == "IMG/dos-carte.png") {
 		allcartes.forEach(c => {
-			if( c[0] == id){				
+			if (c[0] == id) {
 				child2.setAttribute('src', c[2]);
 			}
 		});
@@ -156,5 +172,35 @@ function flip(id) {
 	}
 	console.log(child2.getAttribute("src"))
 
-	//p1.reverseCard();
+}
+
+function shuffle(array) {
+	var currentIndex = array.length, temporaryValue, randomIndex;
+
+	// While there remain elements to shuffle...
+	while (0 !== currentIndex) {
+
+		// Pick a remaining element...
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
+
+		// And swap it with the current element.
+		temporaryValue = array[currentIndex];
+		array[currentIndex] = array[randomIndex];
+		array[randomIndex] = temporaryValue;
+	}
+
+	return array;
+}
+
+function lvl1() {
+	console.log("todooo")
+}
+
+function lvl2() {
+	console.log("todooo")
+}
+
+function lvl3() {
+	console.log("todooo")
 }
