@@ -206,7 +206,7 @@ function shuffle(array) {
 
 function melangeCartes(nb) {
 	if(newCartes.length != 0) {
-		for(var i=1; i < newCartes.length; i++){
+		for(var i=1; i < 50; i++){ // temporarily fix the bug
 			var cardId = document.getElementById("card" + i);
 			if(cardId != null)
 				cardId.remove();
