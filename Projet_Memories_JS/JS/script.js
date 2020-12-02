@@ -19,8 +19,6 @@ var allcartes = [
 	["16", "Yûgi Muto", "IMG/PERSO/yu-gi-oh.jpg", "_"]
 ];
 
-var newCartes = [];
-
 var choiceTwoCards = [];
 var miseEnCommun = [];
 
@@ -128,14 +126,14 @@ class Carte {
 	newCartes[i].presentation();
 } */
 
-var init = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
-
-var melange = shuffle(init)
-
-melange.forEach(m => {
-	newCartes[m] = new Carte(allcartes[m][0], allcartes[m][1]);//,allcartes[i][2],allcartes[i][3]
-	newCartes[m].presentation();
+var INIT = []
+var compteurINIT = -1
+allcartes.forEach(carte => {
+	compteurINIT++;
+	INIT.push(compteurINIT)
 });
+
+lvl1()
 
 //------------------------------------------------------
 
@@ -198,14 +196,26 @@ function shuffle(array) {
 	return array;
 }
 
-function lvl1() {
-	console.log("todooo")
+function melangeCartes(nb) {
+	var newCartes = [];
+	var melange = shuffle(INIT);
+	var lvl = melange.slice(0, nb);
+	var final = lvl.concat(lvl);
+	var final_melange = shuffle(final);
+	console.log("final_melange")
+	console.log(final_melange)
+	final_melange.forEach(m => { newCartes[m] = new Carte(allcartes[m][0], allcartes[m][1]); });
 }
 
-function lvl2() {
-	console.log("todooo")
+function lvl1() { // 10 paires (5 cartes)
+	melangeCartes(5)
 }
 
-function lvl3() {
-	console.log("todooo")
+function lvl2() { // 20 paires (10 cartes)
+	//document.location.href="index.html";
+	melangeCartes(10)
+}
+
+function lvl3() { // 30 paires (15 cartes)
+	melangeCartes(15)
 }
