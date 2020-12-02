@@ -48,7 +48,7 @@
     left: 1600px;
     top:50px;
     border:20px double rgb(255, 255, 255);
-    padding:0 70px;
+    padding:0 20px;
     font-size: 30px;
     color:white;
 }
@@ -58,7 +58,7 @@
     left: 1600px;
     top:130px;
     border:20px double red;
-    padding:0 70px;
+    padding:0 20px;
     font-size: 30px;
     color:white;
 }

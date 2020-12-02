@@ -172,7 +172,7 @@ function checkIfTheSameCards() {
 			if(points == WinPoints) {
 				setTimeout(function () {
 					alert("Victoire !");
-					document.location.href="index.html";
+					document.location.href="memories.html";
 				}, 100);
 			}
 		} else {
