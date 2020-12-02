@@ -22,6 +22,7 @@ var allcartes = [
 var newCartes = [];
 
 var choiceTwoCards = [];
+var miseEnCommun = [];
 
 class Carte {
 
@@ -150,18 +151,25 @@ function flip(id, classId) {
 		child2.setAttribute('src', "IMG/dos-carte.png");
 	}
 	choiceTwoCards.push(id);
+	miseEnCommun.push(classId);
 	checkIfTheSameCards();
 
 }
 
 function checkIfTheSameCards() {
 	if (choiceTwoCards.length == 2) {
-		setTimeout(function () {
-			alert("Ce ne sont pas les bonnes, retournement des cartes...");
-			flip(choiceTwoCards[0]);
-			flip(choiceTwoCards[1]);
+		if (miseEnCommun[0] == miseEnCommun[1]) {
 			choiceTwoCards = [];
-		}, 100);
+			miseEnCommun = [];
+		} else {
+			setTimeout(function () {
+				alert("Ce ne sont pas les bonnes, retournement des cartes...");
+				flip(choiceTwoCards[0]);
+				flip(choiceTwoCards[1]);
+				choiceTwoCards = [];
+				miseEnCommun = [];
+			}, 100);
+		}
 	}
 }
 
