@@ -22,14 +22,14 @@
     position: fixed; 
     left: 1700px;
     width: 100%; 
-    top:150px;
+    top:250px;
     height: 100px;
     width: 100px;
 }
 #img-lvl2-footer { 
     position: fixed;
     left: 1700px;
-    top:350px;
+    top:450px;
     width: 100%;
     height: 100px;
     width: 100px;
@@ -38,9 +38,17 @@
     position: fixed; 
     left: 1700px;
     width: 100%; 
-    top:550px;
+    top:650px;
     height: 100px;
     width: 100px;
+}
+
+#score{
+    position: fixed; 
+    left: 1600px;
+    top:100px;
+    border:20px double rgb(255, 255, 255);
+    padding:0 70px;
 }
 
 /* style temporaire pour cartes ! */
