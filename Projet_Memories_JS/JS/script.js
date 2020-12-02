@@ -18,11 +18,14 @@ var allcartes = [
 	["15", "Seven Deadly Sins", "IMG/PERSO/seven.jpg", "_"],
 	["16", "Yûgi Muto", "IMG/PERSO/yu-gi-oh.jpg", "_"]
 ];
+var newCartes = []; // To create and Init OBJ Carte
 
-var choiceTwoCards = [];
-var miseEnCommun = [];
+var choiceTwoCards = []; // SAVE ID (unique)
+var miseEnCommun = []; // SAVE CLASS (by pair)
 
 var points = 0;
+
+var WinPoints = 5
 
 class Carte {
 
@@ -163,7 +166,7 @@ function checkIfTheSameCards() {
 			miseEnCommun = [];
 			points++;
 			document.getElementById('score').innerHTML = points;
-			if(points == 5) {
+			if(points == WinPoints) {
 				setTimeout(function () {
 					alert("Victoire !");
 					document.location.href="index.html";
@@ -197,25 +200,33 @@ function shuffle(array) {
 }
 
 function melangeCartes(nb) {
-	var newCartes = [];
+	if(newCartes.length != 0) {
+		for(var i=1; i < newCartes.length; i++){
+			var cardId = document.getElementById("card" + i);
+			if(cardId != null)
+				cardId.remove();
+		}
+		newCartes = [];
+		Carte.classID = 0;
+	}
 	var melange = shuffle(INIT);
 	var lvl = melange.slice(0, nb);
 	var final = lvl.concat(lvl);
 	var final_melange = shuffle(final);
-	console.log("final_melange")
-	console.log(final_melange)
 	final_melange.forEach(m => { newCartes[m] = new Carte(allcartes[m][0], allcartes[m][1]); });
 }
 
-function lvl1() { // 10 paires (5 cartes)
-	melangeCartes(5)
-}
+function lvl1() { 
+	WinPoints = 5;
+	melangeCartes(5); 
+} // 10 paires (5 cartes)
 
-function lvl2() { // 20 paires (10 cartes)
-	//document.location.href="index.html";
-	melangeCartes(10)
-}
+function lvl2() {
+	WinPoints = 10;
+	melangeCartes(10);
+} // 20 paires (10 cartes)
 
-function lvl3() { // 30 paires (15 cartes)
+function lvl3() {
+	WinPoints = 15;
 	melangeCartes(15)
-}
+} // 30 paires (15 cartes)
