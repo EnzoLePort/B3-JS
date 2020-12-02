@@ -21,6 +21,8 @@ var allcartes = [
 
 var newCartes = [];
 
+var choiceTwoCards = [];
+
 class Carte {
 
 	static classID = 0;
@@ -172,6 +174,20 @@ function flip(id) {
 	}
 	console.log(child2.getAttribute("src"))
 
+	choiceTwoCards.push(id);
+	checkIfTheSameCards();
+
+}
+
+function checkIfTheSameCards() {
+	if(choiceTwoCards.length == 2) {
+		setTimeout(function() { 
+			alert("Ce ne sont pas les bonnes, retournement des cartes...");
+			flip(choiceTwoCards[0]);
+			flip(choiceTwoCards[1]);
+			choiceTwoCards = [];
+		}, 1000);
+	}
 }
 
 function shuffle(array) {
