@@ -29,10 +29,8 @@ class Carte {
 
 	constructor(ID, NAME, IMG, DESC) {
 
-		Carte.classID++;
-		this.POSITION_ID = Carte.classID;
-
-		this.ID = ID;
+		this.ID = ++Carte.classID;
+		this.CLASS_ID = ID;
 		this.NAME = NAME;
 
 		if (IMG == undefined) {
@@ -51,8 +49,8 @@ class Carte {
 
 		var node = document.createElement('div');
 		node.setAttribute("id", "card" + this.ID);
-		node.setAttribute("class", "pos" + this.POSITION_ID);
-		node.setAttribute("onclick", "flip(" + this.ID + ")");
+		node.setAttribute("class", "class" + this.CLASS_ID);
+		node.setAttribute("onclick", "flip(" + this.ID + "," + this.CLASS_ID + ")");
 
 		var child1 = document.createElement("div");
 		child1.setAttribute("id", "imgCard");
@@ -90,27 +88,11 @@ class Carte {
 		console.log("-----------");
 	}
 
-	reverseCard() {
-
-		let src = this.IMG;
-		let mySrc = myImage.getAttribute('src');
-
-		if (mySrc === src) {
-			myImage.setAttribute('src', "dos-carte.png")
-		}
-		else {
-			myImage.setAttribute('src', src)
-		}
-	}
-
 	//=======================================================================================
 	// Mise en place d'un style CSS pour faire un padding à chaque affichage d'une carte	/
 	//=======================================================================================
 	presentationCard() {
 		var divCard = document.getElementById("card" + this.ID);
-		//var divCard = document.getElementsByClassName("pos" + this.POSITION_ID);
-		console.log("divCard")
-		console.log(divCard)
 		var paddingLeft = [100, 400, 700, 1000, 1300];
 		var paddingTop = [100, 450, 800, 1150, 1500, 1850];
 		if (this.ID <= 5) {
@@ -133,7 +115,6 @@ class Carte {
 			divCard.style.left = paddingLeft[this.ID - 26] + "px";
 		}
 	}
-
 }
 
 //------------------------------------------------------
@@ -148,8 +129,6 @@ var init = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
 
 var melange = shuffle(init)
 
-console.log(melange)
-
 melange.forEach(m => {
 	newCartes[m] = new Carte(allcartes[m][0], allcartes[m][1]);//,allcartes[i][2],allcartes[i][3]
 	newCartes[m].presentation();
@@ -157,55 +136,47 @@ melange.forEach(m => {
 
 //------------------------------------------------------
 
-function flip(id) {
-	console.log("flip id " + id);
-
+function flip(id, classId) {
 	var cardId = document.getElementById("card" + id);
 	var child2 = cardId.firstChild.firstChild;
 	var src = child2.getAttribute("src");
 	if (src == "IMG/dos-carte.png") {
 		allcartes.forEach(c => {
-			if (c[0] == id) {
+			if (c[0] == classId) {
 				child2.setAttribute('src', c[2]);
 			}
 		});
 	} else {
 		child2.setAttribute('src', "IMG/dos-carte.png");
 	}
-	console.log(child2.getAttribute("src"))
-
 	choiceTwoCards.push(id);
 	checkIfTheSameCards();
 
 }
 
 function checkIfTheSameCards() {
-	if(choiceTwoCards.length == 2) {
-		setTimeout(function() { 
+	if (choiceTwoCards.length == 2) {
+		setTimeout(function () {
 			alert("Ce ne sont pas les bonnes, retournement des cartes...");
 			flip(choiceTwoCards[0]);
 			flip(choiceTwoCards[1]);
 			choiceTwoCards = [];
-		}, 1000);
+		}, 100);
 	}
 }
 
 function shuffle(array) {
 	var currentIndex = array.length, temporaryValue, randomIndex;
-
 	// While there remain elements to shuffle...
 	while (0 !== currentIndex) {
-
 		// Pick a remaining element...
 		randomIndex = Math.floor(Math.random() * currentIndex);
 		currentIndex -= 1;
-
 		// And swap it with the current element.
 		temporaryValue = array[currentIndex];
 		array[currentIndex] = array[randomIndex];
 		array[randomIndex] = temporaryValue;
 	}
-
 	return array;
 }
 
