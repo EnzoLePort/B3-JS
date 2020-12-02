@@ -7,7 +7,17 @@ var allcartes = [
 	["SHANKS", "IMG/PERSO/shanks.jpg", "DIEU VIVANT !"],
 	["BYAKUYA", "IMG/PERSO/byakuya.jpg", "SHINIGAMI !"],
 	["ULQUIORA", "IMG/PERSO/ulquiora.jpg", "HOLLOW !"],
-	["YAMAMOTO", "IMG/PERSO/commandant.jpg", "commandant SHINIGAMI !"]
+	["YAMAMOTO", "IMG/PERSO/commandant.jpg", "commandant SHINIGAMI !"],
+	["Boo", "IMG/PERSO/dbz.jpg", "_"],
+	["Tanjirô", "IMG/PERSO/demon.jpg", "_"],
+	["Tanjirô", "IMG/PERSO/demon2.jpg", "_"],
+	["Giyu", "IMG/PERSO/Demon-Slayer.jpg", "_"],
+	["Inazuma Eleven", "IMG/PERSO/eleven.jpg", "_"],
+	["Sangoten", "IMG/PERSO/goku.jpg", "_"],
+	["Sangoku", "IMG/PERSO/goku2.jpg", "_"],
+	["Yu-Gi-Oh !", "IMG/PERSO/monstres.jpg", "_"],
+	["Seven Deadly Sins", "IMG/PERSO/seven.jpg", "_"],
+	["Yûgi Muto", "IMG/PERSO/yu-gi-oh.jpg", "_"]
 ];
 
 var newCartes = [];
