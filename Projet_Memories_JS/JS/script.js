@@ -24,6 +24,8 @@ var newCartes = [];
 var choiceTwoCards = [];
 var miseEnCommun = [];
 
+var points = 0;
+
 class Carte {
 
 	static classID = 0;
@@ -161,6 +163,14 @@ function checkIfTheSameCards() {
 		if (miseEnCommun[0] == miseEnCommun[1]) {
 			choiceTwoCards = [];
 			miseEnCommun = [];
+			points++;
+			document.getElementById('score').innerHTML = points;
+			if(points == 5) {
+				setTimeout(function () {
+					alert("Victoire !");
+					document.location.href="index.html";
+				}, 100);
+			}
 		} else {
 			setTimeout(function () {
 				alert("Ce ne sont pas les bonnes, retournement des cartes...");
