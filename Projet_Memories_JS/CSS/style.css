@@ -46,8 +46,18 @@
 #score{
     position: fixed; 
     left: 1600px;
-    top:100px;
+    top:50px;
     border:20px double rgb(255, 255, 255);
+    padding:0 70px;
+    font-size: 30px;
+    color:white;
+}
+
+#nbcoups{
+    position: fixed; 
+    left: 1600px;
+    top:130px;
+    border:20px double red;
     padding:0 70px;
     font-size: 30px;
     color:white;

@@ -22,6 +22,7 @@ var newCartes = []; // To create and Init OBJ Carte
 
 var choiceTwoCards = []; // SAVE ID (unique)
 var miseEnCommun = []; // SAVE CLASS (by pair)
+var compteurDeCoups = 0; 
 
 var points = 0;
 
@@ -166,6 +167,8 @@ function checkIfTheSameCards() {
 			miseEnCommun = [];
 			points++;
 			document.getElementById('score').innerHTML = points;
+			compteurDeCoups++;
+			document.getElementById('nbcoups').innerHTML = compteurDeCoups;
 			if(points == WinPoints) {
 				setTimeout(function () {
 					alert("Victoire !");
@@ -175,6 +178,8 @@ function checkIfTheSameCards() {
 		} else {
 			setTimeout(function () {
 				alert("Ce ne sont pas les bonnes, retournement des cartes...");
+				compteurDeCoups++;
+				document.getElementById('nbcoups').innerHTML = compteurDeCoups;
 				flip(choiceTwoCards[0]);
 				flip(choiceTwoCards[1]);
 				choiceTwoCards = [];
