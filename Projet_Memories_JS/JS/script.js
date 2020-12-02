@@ -97,13 +97,25 @@ class Carte {
 	presentationCard(){
 		var divCard = document.getElementById("card"+this.ID);
 		var paddingLeft = 	[100, 400, 700, 1000, 1300];
-		var paddingTop 	= 	[100, 450];
-		if(this.ID < 6) {
+		var paddingTop 	= 	[100, 450, 800, 1150, 1500, 1850];
+		if(this.ID <= 5) {
 			divCard.style.top = paddingTop[0]+"px";
 			divCard.style.left = paddingLeft[this.ID-1]+"px";
-		} else {
+		} else if(this.ID >= 6 && this.ID <= 10){
 			divCard.style.top = paddingTop[1]+"px";
 			divCard.style.left = paddingLeft[this.ID-6]+"px";
+		} else if(this.ID >= 11 && this.ID <= 15) {
+			divCard.style.top = paddingTop[2]+"px";
+			divCard.style.left = paddingLeft[this.ID-11]+"px";
+		} else if(this.ID >= 16 && this.ID <= 20) {
+			divCard.style.top = paddingTop[3]+"px";
+			divCard.style.left = paddingLeft[this.ID-16]+"px";
+		} else if(this.ID >= 21 && this.ID <= 25) {
+			divCard.style.top = paddingTop[4]+"px";
+			divCard.style.left = paddingLeft[this.ID-21]+"px";
+		} else if(this.ID >= 26 && this.ID <= 30) {
+			divCard.style.top = paddingTop[5]+"px";
+			divCard.style.left = paddingLeft[this.ID-26]+"px";
 		}
 	}
 
