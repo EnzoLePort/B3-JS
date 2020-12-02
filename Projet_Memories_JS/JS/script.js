@@ -1,23 +1,22 @@
 console.log('test_Creation_Cartes');
 
 var allcartes = [
-	["no value here"],
-	["ZOROOOOOOOO", "IMG/PERSO/zoro2.jpg", "Bretteur invincible !"],
-	["LUFFY", "IMG/PERSO/luffy.jpg", "Homme élastique !"],
-	["SHANKS", "IMG/PERSO/shanks.jpg", "DIEU VIVANT !"],
-	["BYAKUYA", "IMG/PERSO/byakuya.jpg", "SHINIGAMI !"],
-	["ULQUIORA", "IMG/PERSO/ulquiora.jpg", "HOLLOW !"],
-	["YAMAMOTO", "IMG/PERSO/commandant.jpg", "commandant SHINIGAMI !"],
-	["Boo", "IMG/PERSO/dbz.jpg", "_"],
-	["Tanjirô", "IMG/PERSO/demon.jpg", "_"],
-	["Tanjirô", "IMG/PERSO/demon2.jpg", "_"],
-	["Giyu", "IMG/PERSO/Demon-Slayer.jpg", "_"],
-	["Inazuma Eleven", "IMG/PERSO/eleven.jpg", "_"],
-	["Sangoten", "IMG/PERSO/goku.jpg", "_"],
-	["Sangoku", "IMG/PERSO/goku2.jpg", "_"],
-	["Yu-Gi-Oh !", "IMG/PERSO/monstres.jpg", "_"],
-	["Seven Deadly Sins", "IMG/PERSO/seven.jpg", "_"],
-	["Yûgi Muto", "IMG/PERSO/yu-gi-oh.jpg", "_"]
+	["1", "ZOROOOOOOOO", "IMG/PERSO/zoro2.jpg", "Bretteur invincible !"],
+	["2", "LUFFY", "IMG/PERSO/luffy.jpg", "Homme élastique !"],
+	["3", "SHANKS", "IMG/PERSO/shanks.jpg", "DIEU VIVANT !"],
+	["4", "BYAKUYA", "IMG/PERSO/byakuya.jpg", "SHINIGAMI !"],
+	["5", "ULQUIORA", "IMG/PERSO/ulquiora.jpg", "HOLLOW !"],
+	["6", "YAMAMOTO", "IMG/PERSO/commandant.jpg", "commandant SHINIGAMI !"],
+	["7", "Boo", "IMG/PERSO/dbz.jpg", "_"],
+	["8", "Tanjirô", "IMG/PERSO/demon.jpg", "_"],
+	["9", "Tanjirô", "IMG/PERSO/demon2.jpg", "_"],
+	["10", "Giyu", "IMG/PERSO/Demon-Slayer.jpg", "_"],
+	["11", "Inazuma Eleven", "IMG/PERSO/eleven.jpg", "_"],
+	["12", "Sangoten", "IMG/PERSO/goku.jpg", "_"],
+	["13", "Sangoku", "IMG/PERSO/goku2.jpg", "_"],
+	["14", "Yu-Gi-Oh !", "IMG/PERSO/monstres.jpg", "_"],
+	["15", "Seven Deadly Sins", "IMG/PERSO/seven.jpg", "_"],
+	["16", "Yûgi Muto", "IMG/PERSO/yu-gi-oh.jpg", "_"]
 ];
 
 var newCartes = [];
@@ -26,14 +25,16 @@ class Carte {
 
 	static classID = 0;
 
-	constructor(NAME, IMG, DESC) {
+	constructor(ID, NAME, IMG, DESC) {
 
-		this.ID = ++Carte.classID;
+		Carte.classID++;
+		//this.ID = ++Carte.classID;
 
+		this.ID = ID;
 		this.NAME = NAME;
 
 		if (IMG == undefined) {
-			this.IMG = "IMG/PERSO/empty.jpg";
+			this.IMG = "IMG/dos-carte.png";
 		}
 		else {
 			this.IMG = IMG;
@@ -131,32 +132,29 @@ class Carte {
 
 }
 
-for (var i = 1; i < allcartes.length; i++) {
-	newCartes[i] = new Carte(allcartes[i][0],allcartes[i][1],allcartes[i][2]);
+for (var i = 0; i < allcartes.length; i++) {
+	newCartes[i] = new Carte(allcartes[i][0],allcartes[i][1]);//,allcartes[i][2],allcartes[i][3]
 	newCartes[i].presentation();
 }
 
 //------------------------------------------------------
 
-function newCard() {
-
-	console.log("appuie ok");
-
-	//aller sur nouvelle page et faire un nouveaux script?
-	//ou creer ici et sur nouvelle page recuperer tt ce qui y a ici pour creer visu.
-
-	const p6 = new Carte("newperso");
-	p6.presentation();
-}
-
 function flip(id) {
 	console.log("flip id " + id);
 
-	var d = document.getElementById("card" + id);
-	var dd = d.firstChild.firstChild;//.getAttribute("src");
-	//var dd = d.firstChild.firstChild.getAttribute("src");
-	console.log(dd.getAttribute("src"))
-	dd.setAttribute('src', "IMG/dos-carte.png");
+	var cardId = document.getElementById("card" + id);
+	var child2 = cardId.firstChild.firstChild;
+	var src = child2.getAttribute("src");
+	if(src == "IMG/dos-carte.png"){
+		allcartes.forEach(c => {
+			if( c[0] == id){				
+				child2.setAttribute('src', c[2]);
+			}
+		});
+	} else {
+		child2.setAttribute('src', "IMG/dos-carte.png");
+	}
+	console.log(child2.getAttribute("src"))
 
 	//p1.reverseCard();
 }
