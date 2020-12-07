@@ -184,7 +184,7 @@ function checkIfTheSameCards() {
 				flip(choiceTwoCards[1]);
 				choiceTwoCards = [];
 				miseEnCommun = [];
-			}, 100);
+			}, 1500);
 		}
 	}
 }
