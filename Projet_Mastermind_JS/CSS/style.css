@@ -1,0 +1,330 @@
+body {background: linear-gradient(to top, #8cd890, #0372ff);
+    height: 960px;
+    }
+    
+    
+    * {
+      padding: 0;
+      margin: 0;
+      outline: none;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    /*#myDIV {background-color: #fff;} */
+    
+    h1 {
+    display: block; 
+    width: 280px;
+    color: #55b618; 
+    background-color: transparent;  
+    font-family: 'Pacifico', arial;
+    font-size: 55px;
+    font-weight: 300;
+    padding: 0 20px 0 20px;  
+    margin: 70px auto 5px;
+    border-radius: 20px;
+    border: 0px solid red;
+      
+    }
+    
+    a.a-github {
+      display: block;
+      position: absolute;
+      z-index: 100;
+      top: 70px;
+      width: 100%;
+      height: 750px;
+      border: 0px solid black;
+      cursor: crosshair;
+    }
+    
+    h2 {
+    float: left;
+    font-family: 'Pacifico', cursive;
+    color: #002618;
+    font-size: 25px;
+    display: block;
+    position: absolute;  
+    padding: 10px -10px 0 0;  
+      
+    }
+    
+    h5.ruls {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    height: 20px;  
+    padding: 5px 5px 0 0px;
+    text-align: left; 
+    }
+    h5.ruls a {
+      padding-left: 5px ;
+      line-height: 25px;
+      font-family: 'Roboto', cursive;
+      color: #009688;
+    }
+    input.sample {
+      display: block;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin:  20px 0px 0 0;
+      font-size: 18px;
+      color: white;
+      background-color: #55b618;
+    }
+    
+    .board-game{
+     width: 420px;
+     height: 600px;
+     margin: 0px auto;
+     border-radius: 15px;
+     
+     }
+    
+    .field {
+      position: relative;
+      height: 500px;
+      border-radius: 40px 40px 0 0 ;
+      border: 1px solid transparent;}
+    
+    li { height: 100px;}
+    
+    
+    ul.attempts { 
+       padding: 20px 0 0 20px; }
+    ul.attempts li{ margin-bottom: -40px; }
+    
+    div.attempt i,div.attempt tt{
+    display:inline-block; 
+    float: left;  
+    width: 35px;
+    height: 35px;
+    border-radius: 50% ; 
+    margin: 0px 0px 0px 24px;
+    }
+    div.attempt tt{
+      display:none;
+    }
+    
+    
+    div.secrets .secret{
+    display:inline-block; 
+    width: 28px;
+    height: 28px;
+    border-radius: 50% ; 
+    border: 1px solid white;
+    background-color: white; 
+  
+    }
+    div.secret:nth-child(5){
+     display: none;
+    }
+    
+    .game-choice{
+      width:100%;
+      height:10%;
+      margin: 15px 0 4px 0;
+    }
+    .game-choice i{
+  
+      display: inline-block;
+      margin: 0 0 0 12px;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+    }
+    .choice-1{background-color:red;}
+    .choice-2{background-color: orangered;}
+    .choice-3{background-color: yellow;}
+    .choice-4{background-color: green;}
+    .choice-5{background-color: blue;}
+    .choice-6{background-color:magenta;}
+    .undo{
+      font-size:2em;
+      margin-bottom:3px;
+    }
+  
+  
+    .secrets {
+      width: 220px; 
+    /*   margin-left: 150px; */
+      margin: 5px auto 5px;
+      border: 3px solid #603813;
+      border-radius:5px;
+      justify-content:space-evenly;
+      display:flex;
+     }
+    
+    div.result {
+    float:left;  
+    width: 50px;
+    height: 50px;
+    border-bottom:3px solid #603813;
+  
+    }
+  
+    .game{
+      width:390px;
+      height:570px;
+      border: 5px solid #603813;
+      border-radius:5px;
+      position: relative;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    
+    div.result b, div.result em  {
+    float: left;
+    display:block;
+    width: 16px;
+    height: 16px;
+    margin: 2px 2px 2px 5px;
+    border-radius: 50% ; 
+    background-color: #aaaaaa;
+  
+    }
+    div.result em {
+    display: none;
+    position: relative;
+    top: -28px;
+    left: 9px;
+    }
+    
+    i{
+      margin:0,0,0,50px;
+    }
+    
+    div.fild_buttons { width: 600px; 
+    }
+    
+    .fild_buttons .buttons {
+     width: 600px; 
+     display: flex;
+     flex-direction: row;
+     justify-content: space-around; 
+     margin-top: 18px;
+    /*  margin: 18px auto; */
+    /*  margin-left: 20px; */
+     
+     }
+    
+    .fild_buttons .buttons input {
+    /*  display:inline-block;
+     margin: 8px;  */
+     margin: 0 8px;   
+     justify-content: space-around;
+     width: 60px;
+     height: 60px;
+     border-radius: 50%;
+     color: transparent; 
+     }
+    .fild_buttons .buttons input.b_pink, .fild_buttons .buttons input.b_dark{
+      display: none;}
+    
+    
+    .n-4-6 div.secret:nth-child(5),
+    .n-4-6 .fild_buttons .buttons input:nth-child(7),
+    .n-4-6 .fild_buttons .buttons input:nth-child(8),
+    .n-4-6 div.attempt tt, .n-4-6 div.result em
+    {display:none;}
+    .n-4-6 h5.ruls {
+      right: 35px;}
+    .n-4-6 input.sample {display: block;}
+    .n-4-6 .fild_buttons .buttons input {
+      width: 60px;
+      height: 60px;
+      margin: 0 8px;
+    } 
+    .n-4-6 div.result{ margin-right: 70px;} 
+    .n-4-6 div.secrets .secret{
+    width: 50px;
+    height: 50px;}
+    
+    .n-5-8{background: linear-gradient(to top, #512DA8, #00796B); transition: 5s;}
+    .n-5-8 div.secret:nth-child(5),
+    .n-5-8 .fild_buttons .buttons input:nth-child(7),
+    .n-5-8 .fild_buttons .buttons input:nth-child(8)
+    {display:inline-block;}
+    .n-5-8 div.attempt tt, .n-5-8 div.result em
+    {display:block;}
+    .n-5-8 h5.ruls {
+       right: 15px;}
+    .n-5-8 input.sample {display: none;}
+    .n-5-8 .fild_buttons .buttons input {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+    } 
+    .n-5-8 div.result{ margin-right: 60px;} 
+    .n-5-8 div.secrets .secret{
+    width: 45px;
+    height: 45px;}
+    
+  
+    
+    
+    
+    .board-game{
+      background-color: #A67C52; 
+  }
+    .field{
+      border-bottom: 2px solid #557668;  
+      background-color:#A67C52;}
+    div.attempt i,div.attempt tt{
+    background: #603813;
+    margin: 0 0 0 28px;
+  
+  
+    }
+    
+   
+    div.result b, div.result em{
+    background-color: #603813;
+   
+    }
+    .fild_buttons input.b_cansel{
+    color: black; background-color: #607D8B;  
+    }
+    
+    h1.rai {
+        color: white;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        font-size: 20px;
+        background: "#388E3C";
+        background: -moz-linear-gradient( top ,
+            rgba(255, 0, 0, 1) 0%,
+            rgba(255, 255, 0, 1) 15%,
+            rgba(0, 255, 0, 1) 30%,
+            rgba(0, 255, 255, 1) 50%,
+            rgba(0, 0, 255, 1) 65%,
+            rgba(255, 0, 255, 1) 80%,
+            rgba(255, 0, 0, 1) 100%);
+        background: -webkit-gradient(linear,  left top,  left bottom, 
+            color-stop(0%, rgba(255, 0, 0, 1)), 
+            color-stop(15%, rgba(255, 255, 0, 1)),
+            color-stop(30%, rgba(0, 255, 0, 1)),
+            color-stop(50%, rgba(0, 255, 255, 1)),
+            color-stop(65%, rgba(0, 0, 255, 1)),
+            color-stop(80%, rgba(255, 0, 255, 1)),
+            color-stop(100%, rgba(255, 0, 0, 1)));
+    }
+    
+    .b_white {background-color: #fff;}  
+    .b_lilac {background-color: #9C27B0;} 
+    .b_yellow{background-color: #FFC107;} 
+    .b_green {background-color: #388E3C;} 
+    .b_red {background-color: #D32F2F;} 
+    .b_blue {background-color: #1976D2;}
+    .b_pink {background-color: #FF90a1;}
+    .b_dark {background-color: #202F8F;}
+    
+    .ra {width: 300px;
+    border: 5px solid red;}
+    
+    /* .fonc {padding-left: 40px; display: none;}  */
+    .fonc {padding-left: 40px; display: none !important;}
