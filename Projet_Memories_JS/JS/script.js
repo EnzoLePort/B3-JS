@@ -1,4 +1,4 @@
-console.log('test_Creation_Cartes');
+//console.log('test_Creation_Cartes');
 
 var allcartes = [
 	["1", "ZOROOOOOOOO", "IMG/PERSO/zoro2.jpg", "Bretteur invincible !"],
@@ -12,7 +12,7 @@ var allcartes = [
 	["9", "Tanjirô", "IMG/PERSO/demon2.jpg", "_"],
 	["10", "Giyu", "IMG/PERSO/Demon-Slayer.jpg", "_"],
 	["11", "Inazuma Eleven", "IMG/PERSO/eleven.jpg", "_"],
-	["12", "Sangoten", "IMG/PERSO/goku.jpg", "_"],
+	["12", "Sangoku evolution", "IMG/PERSO/goku.jpg", "_"],
 	["13", "Sangoku", "IMG/PERSO/goku2.jpg", "_"],
 	["14", "Yu-Gi-Oh !", "IMG/PERSO/monstres.jpg", "_"],
 	["15", "Seven Deadly Sins", "IMG/PERSO/seven.jpg", "_"],
@@ -160,9 +160,16 @@ function flip(id, classId) {
 
 }
 
+function dontFlipNextTime(id) {
+	var cardId = document.getElementById("card" + id);
+	cardId.setAttribute('onclick', 'doNothing()');
+}
+
 function checkIfTheSameCards() {
 	if (choiceTwoCards.length == 2) {
 		if (miseEnCommun[0] == miseEnCommun[1] && choiceTwoCards[0] != choiceTwoCards[1]) {
+			dontFlipNextTime(choiceTwoCards[0]);
+			dontFlipNextTime(choiceTwoCards[1]);
 			choiceTwoCards = [];
 			miseEnCommun = [];
 			points++;
@@ -235,3 +242,7 @@ function lvl3() {
 	WinPoints = 15;
 	melangeCartes(15)
 } // 30 paires (15 cartes)
+
+function doNothing() {
+	//console.log("...");
+}
