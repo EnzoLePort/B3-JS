@@ -124,19 +124,24 @@ body {background: linear-gradient(to top, #8cd890, #0372ff);
     div.secret:nth-child(5){
      display: none;
     }
-    
-    .game-choice{
+
+    #choiceColors {
+      margin-top: 15px;
+      position: relative;
+    }
+
+    i{
       width:100%;
       height:10%;
       margin: 15px 0 4px 0;
     }
-    .game-choice i{
+    i{
   
       display: inline-block;
       margin: 0 0 0 12px;
       width: 35px;
       height: 35px;
-      border-radius: 50%;
+      border-radius: 100%;
     }
     .choice-1{background-color:red;}
     .choice-2{background-color: orangered;}
