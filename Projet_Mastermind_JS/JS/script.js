@@ -1,79 +1,75 @@
-console.log('test_mastermind');
+//===========================================
+//       CONFIGURATION DU JEU               /
+//===========================================
+var paletteColor = ["red","orangered","yellow","green","blue","magenta"];
+var nbTentatives = 8;
 
-var modelSize = 4
-//var model = [];
 
-/*
-GRIS :: #bbbbbb
-VERT :: #61b15a
-ROUGE :: #f05454
-MARROn :: 825959
-*/
-
-var paletteColor = [
-    [1,"#bedcfa"],
-    [2,"#adce74"],
-    [3,"#d35d6e"],
-    [4,"#fcf876"],
-];
-
-/*
-[5,"#cc0e74"],
-[6,"#ffa5a5"],
-[7,"#150485"],
-[8,"#835858"],
-[9,"#6a2c70"],
-[10,"#cf7500"],
-[11,"#da9ff9"],
-[12,"#d1c145"],
-*/
-
-function shuffle(array) {
-	var currentIndex = array.length, temporaryValue, randomIndex;
-	// While there remain elements to shuffle...
-	while (0 !== currentIndex) {
-		// Pick a remaining element...
-		randomIndex = Math.floor(Math.random() * currentIndex);
-		currentIndex -= 1;
-		// And swap it with the current element.
-		temporaryValue = array[currentIndex];
-		array[currentIndex] = array[randomIndex];
-		array[randomIndex] = temporaryValue;
-	}
-	return array;
-}
-
+//===========================================
+//   Classe pour le déroulement du jeu      /
+//===========================================
 class Mastermind {
 
-    constructor(size) {
-        var tbl_init = []
-        for(var i=1; i <= size; i++){
-            tbl_init.push(i);
-        }
-        this.MODEL = shuffle(tbl_init);
-        console.log(this.MODEL);
+    constructor() {
+        this.code = this.shuffleCode();
+        this.casePourTenterDeTrouverLeCode = [ [] ];
+        this.positionTentativeCouleurX = 0;
+        this.positionTentativeCouleurY = 1;
     }
 
-    compare(other) {
-        for(var i=0; i < this.MODEL.length ; i++){
-            for(var j=0; j < other.length ; j++){
-                if(this.MODEL[i] == other[j]){
-                    if(i == j){
-                        console.log("VERT");
-                    } else {
-                        console.log("ROUGE");
-                    }
-                }
-            }
+    //=============================================================================
+    //       On mélange les couleurs du code pour former le code à trouver !      /
+    //=============================================================================
+    shuffleCode() {
+        var currentIndex = 0;
+        var code = ["","","",""];
+        // While there remain elements to shuffle...
+        while (currentIndex < 4) {
+            code[currentIndex] = paletteColor[Math.floor(Math.random() * (paletteColor.length - 1 + 0)) + 1];
+            currentIndex++;
+        }
+        return code;
+    }
+
+    //=================================================================================================
+    //       Préparation du design du jeu en fonction de la configuration mis en haut du fichier      /
+    //=================================================================================================
+    preparePlateau() {
+        var choiceColors = document.getElementById('choiceColors');
+        for(var i=0; i <= paletteColor.length; i++) {
+            choiceColors.innerHTML += "<i onclick='onClickTentativeColor("+i+")' style='background-color:"+paletteColor[i]+";'></i>";
+        }   
+        
+        var plateau = document.getElementById('plateau');
+        for(var i=nbTentatives-1; i >= 0; i--) {
+            plateau.innerHTML += '<li> <div class="result" d-f="0"><b></b><b></b><b></b><b></b><em></em></div><div class="attempt"><i id="'+i+'1"></i><i id="'+i+'2"></i><i id="'+i+'3"></i><i id="'+i+'4"></i><tt></tt></div></li> ';
+            this.casePourTenterDeTrouverLeCode[i] = [i+"1",i+"2",i+"3",i+"4"];
+        }
+    }
+
+    //=================================================================================================
+    //           Affichage du code après la victoire ou la défaite du joueur                          /
+    //=================================================================================================
+    showCodeAfterVicoryOrLose() {
+        for(var i = 1; i <= this.code.length; i++) {
+            var code = document.getElementById("code"+i);
+            code.style.backgroundColor = this.code[i-1];
         }
     }
 }
 
 //------------------------------------------------------
 
-var test2 = new Mastermind(modelSize);
-//console.log(test2.MODEL);
+var mastermind = new Mastermind();
+mastermind.preparePlateau();
+mastermind.showCodeAfterVicoryOrLose();
 
-var test3 = [1,2,3,4];
-
-test2.compare(test3);
+function onClickTentativeColor(index) {
+    var colorCircle = document.getElementById(""+mastermind.positionTentativeCouleurX + ""+ mastermind.positionTentativeCouleurY);
+    colorCircle.style.backgroundColor = paletteColor[index];
+    mastermind.positionTentativeCouleurY++;
+    if(mastermind.positionTentativeCouleurY == 5) {
+        mastermind.positionTentativeCouleurX++;
+        mastermind.positionTentativeCouleurY = 1;
+    }
+}
