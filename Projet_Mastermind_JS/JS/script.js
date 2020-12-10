@@ -69,6 +69,7 @@ class Mastermind {
         }
         if(gagne == 4) {
             alert("TU AS GAGNE !!!");
+            window.location = "";
         }
     }
 }
