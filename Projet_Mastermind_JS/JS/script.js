@@ -37,7 +37,8 @@ class Mastermind {
     preparePlateau() {
         var choiceColors = document.getElementById('choiceColors');
         for(var i=0; i <= paletteColor.length; i++) {
-            choiceColors.innerHTML += "<i onclick='onClickTentativeColor("+i+")' style='background-color:"+paletteColor[i]+";'></i>";
+            choiceColors.innerHTML += "<i class='animationChoiceColor' onclick='onClickTentativeColor("+i+")' style='background-color:"+paletteColor[i]+";'></i>";
+            var animationChoiceColor = document.getElementsByClassName("animationChoiceColor");
         }   
         
         var plateau = document.getElementById('plateau');
@@ -69,7 +70,7 @@ class Mastermind {
         }
         if(gagne == 4) {
             alert("TU AS GAGNE !!!");
-            window.location = "";
+            this.showCodeAfterVicoryOrLose();
         }
     }
 }
@@ -78,7 +79,6 @@ class Mastermind {
 
 var mastermind = new Mastermind();
 mastermind.preparePlateau();
-mastermind.showCodeAfterVicoryOrLose();
 
 function onClickTentativeColor(index) {
     var colorCircle = document.getElementById(""+mastermind.positionTentativeCouleurX + ""+ mastermind.positionTentativeCouleurY);
