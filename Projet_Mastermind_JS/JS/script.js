@@ -62,10 +62,21 @@ class Mastermind {
         var gagne = 0;
         for(var i = 1; i <= this.code.length; i++) {
             var colorCircle = document.getElementById(""+mastermind.positionTentativeCouleurX + ""+i);
+
+            // Quand la couleur est bien placée on met un point noir
             if(colorCircle.style.backgroundColor == this.code[i-1]) {
                 var colorVerif = document.getElementById("verif"+mastermind.positionTentativeCouleurX+""+i);
                 colorVerif.style.backgroundColor = "black";
                 gagne++;
+            
+            //Sinon on regarde si la couleur est quand meme dans le code, mais pas au bon endroit, dans ce cas point blanc
+            } else {
+                for(var j = 1; j <= this.code.length; j++) {
+                    if(colorCircle.style.backgroundColor == this.code[j-1]) {
+                        var colorVerif = document.getElementById("verif"+mastermind.positionTentativeCouleurX+""+i);
+                        colorVerif.style.backgroundColor = "white";
+                    }
+                }
             }
         }
         if(gagne == 4) {
