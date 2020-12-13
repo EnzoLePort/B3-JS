@@ -94,6 +94,7 @@ mastermind.preparePlateau();
 function onClickTentativeColor(index) {
     var colorCircle = document.getElementById(""+mastermind.positionTentativeCouleurX + ""+ mastermind.positionTentativeCouleurY);
     colorCircle.style.backgroundColor = paletteColor[index];
+    colorCircle.classList.add("animate__animated", "animate__bounce");
     mastermind.positionTentativeCouleurY++;
     if(mastermind.positionTentativeCouleurY == 5) {
         mastermind.checkLineTentative();
