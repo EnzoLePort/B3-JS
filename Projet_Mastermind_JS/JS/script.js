@@ -2,8 +2,8 @@
 //       CONFIGURATION DU JEU               /
 //===========================================
 var paletteColor = ["red","orangered","yellow","green","blue","magenta"];
+var initNbTentatives = 8
 var nbTentatives = 8;
-
 
 //===========================================
 //   Classe pour le déroulement du jeu      /
@@ -101,5 +101,56 @@ function onClickTentativeColor(index) {
         mastermind.checkLineTentative();
         mastermind.positionTentativeCouleurX++;
         mastermind.positionTentativeCouleurY = 1;
+    }
+}
+
+function showSolution() {
+    mastermind.showCodeAfterVicoryOrLose();
+}
+
+function ChangeNbTentatives() {
+
+    var nb = document.getElementById('nbTentatives8').value
+
+    if(nb <= 0) { nb = 15;}
+    
+    var multiplicateur = 70// 81; // 8/650
+    var board_game = 650;
+    var game = 620; // - 30
+    var field = 553; // - 97
+
+    var regex = /^[0-9]{1,2}$/;
+    var test = regex.test(nb);
+
+    if(test) {
+        console.log("nb valide !");
+        
+        if(nb > 8) {
+            console.log("nb > 8")
+            board_game += (nb-8) * multiplicateur;
+            game += (nb-8) * multiplicateur;
+            field += (nb-8) * multiplicateur;
+        } else {
+            board_game -= (8-nb) * multiplicateur;
+            game -= (8-nb) * multiplicateur;
+            field -= (8-nb) * multiplicateur;
+        }
+
+        // REDRAW
+
+        document.getElementById("BoardGame").style.height = board_game + 'px';
+        document.getElementById("Game").style.height = game + 'px';
+        document.getElementById("Field").style.height = field + 'px';
+
+        nbTentatives = nb;
+
+        const Plateau = document.getElementById("plateau");
+        while (Plateau.firstChild) { Plateau.removeChild(Plateau.lastChild); }
+        const choiceColors = document.getElementById("choiceColors");
+        while (choiceColors.firstChild) { choiceColors.removeChild(choiceColors.lastChild); }
+
+        mastermind.preparePlateau();
+    } else {
+        console.log("mauvais input !");
     }
 }

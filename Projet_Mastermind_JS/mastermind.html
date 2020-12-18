@@ -6,35 +6,46 @@
 
 <body>
 
-<h1>Mastermind</h1>
+  <div id="tbl_bord_board_game" class="board-game">
+    <div id="tbl_bord_game" class="game">    
+      <h5 style="text-align: center;">Tableau de bord</h5>
+      </br>
 
-<div class="secrets "><div id="code1" class="secret"></div><div id="code2" class="secret"></div><div id="code3" class="secret"></div><div id="code4" class="secret"></div><div class="secret"></div><div class="secret fonc"></div></div>
+      <label for="nbTentatives8">Changer le nombres de tentatives : </label>
+      <input type="text" placeholder="8 attempts by def" id="nbTentatives8" maxlength="2">
+      <button id="B1" onclick="ChangeNbTentatives()">Changer</button>
+      </br>
 
-<div class="board-game">
-  
-<div class="game">
-  
-<div class="field" title="">
+      <a class="buttonA" href="mastermind.html"><button id="B2">Play Again</button></a>
+      </br>
+      <button id="B3" onclick="showSolution()">Show solution</button>
+      
+    </div>
 
+  </div>
 
+  <h1>Mastermind</h1>
 
-  
-  <ul id="plateau" class="attempts">
-  
-  </ul>
+    <div class="secrets "><div id="code1" class="secret"></div><div id="code2" class="secret"></div><div id="code3" class="secret"></div><div id="code4" class="secret"></div><div class="secret"></div><div class="secret fonc"></div></div>
 
-  
+      <div id="BoardGame" class="board-game">
+        
+        <div id="Game" class="game">
+          
+            <div id="Field" class="field" title="">
 
+              <ul id="plateau" class="attempts">
+              </ul>
 
+            </div>
 
-</div>
-<div id="choiceColors">
-    
-</div>
-</div>
-</div>
+        <div id="choiceColors">
+          
+      </div>
 
+    </div>
 
-<script src="https://use.fontawesome.com/93c2181718.js"></script>
-<script src="JS/script.js"></script>
+  <script src="https://use.fontawesome.com/93c2181718.js"></script>
+  <script src="JS/script.js"></script>
+
 </body>
