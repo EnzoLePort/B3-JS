@@ -37,7 +37,8 @@ class Mastermind {
     preparePlateau() {
         var choiceColors = document.getElementById('choiceColors');
         for(var i=1; i <= paletteColor.length; i++) {
-            choiceColors.innerHTML += "<i class='animationChoiceColor' onclick='onClickTentativeColor("+i+")' style='background-color:"+paletteColor[i-1]+";'></i>";
+            var temp = i -1;
+            choiceColors.innerHTML += "<i class='animationChoiceColor' onclick='onClickTentativeColor("+temp+")' style='background-color:"+paletteColor[temp]+";'></i>";
             var animationChoiceColor = document.getElementsByClassName("animationChoiceColor");
         }   
         
